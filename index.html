@@ -3,215 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Урбанізація | Ера Міст</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Урбанізація | Світовий Перехід</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
+        :root {
+            --accent: #00d4ff;
+            --bg: #0a0a0c;
+            --card-bg: rgba(255, 255, 255, 0.03);
         }
 
-        body {
-            background-color: #0d0d0f;
-            color: #e0e0e0;
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background-color: var(--bg); color: #dcdcdc; line-height: 1.7; }
 
-        .bg-glow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 0%, #1a1a2e 0%, #0d0d0f 70%);
+        /* Фонове сяйво */
+        .glow-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 20% 30%, #16213e 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, #1a1a2e 0%, transparent 40%);
             z-index: -1;
         }
 
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 10%;
-            background: rgba(13, 13, 15, 0.9);
-            backdrop-filter: blur(15px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; background: rgba(10, 10, 12, 0.9);
+            backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            color: #00d4ff;
-            text-transform: uppercase;
-        }
-
+        .logo { font-weight: 700; letter-spacing: 2px; color: var(--accent); }
         nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 25px; }
-        nav ul li a { text-decoration: none; color: #999; transition: 0.3s; font-size: 0.85rem; }
-        nav ul li a:hover { color: #00d4ff; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { text-decoration: none; color: #888; font-size: 0.8rem; transition: 0.3s; }
+        nav ul li a:hover { color: var(--accent); }
 
         header {
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 10%;
-            background: linear-gradient(to bottom, rgba(13, 13, 15, 0.4), #0d0d0f), 
-                        url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            height: 70vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding: 0 10%;
+            background: linear-gradient(to bottom, rgba(10,10,12,0.2), var(--bg)), 
+                        url('https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover; background-position: center; background-attachment: fixed;
         }
 
-        header h1 {
-            font-size: clamp(2.5rem, 7vw, 4.5rem);
-            margin-bottom: 20px;
-            letter-spacing: 5px;
-            background: linear-gradient(90deg, #fff, #00d4ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 8vw, 5rem); margin-bottom: 15px; }
+        header p { max-width: 700px; font-weight: 300; font-size: 1.1rem; color: #aaa; }
+
+        .section { padding: 80px 10%; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 40px; color: #fff; }
+        .section-title span { color: var(--accent); }
+
+        /* Текстові блоки */
+        .text-cols { column-count: 2; column-gap: 50px; text-align: justify; margin-bottom: 40px; }
+        .text-cols p { margin-bottom: 20px; }
+
+        /* Картки мегалополісів */
+        .geo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .geo-card { 
+            background: var(--card-bg); padding: 30px; border-radius: 12px; 
+            border-left: 4px solid var(--accent); transition: 0.3s;
         }
+        .geo-card:hover { background: rgba(255,255,255,0.06); transform: scale(1.02); }
 
-        header p { max-width: 800px; font-size: 1.2rem; color: #bbb; font-weight: 300; }
-
-        .content-section { padding: 80px 15%; }
-        
-        .intro-text {
-            font-size: 1.1rem;
-            color: #ccc;
-            column-count: 2;
-            column-gap: 40px;
-            margin-bottom: 50px;
+        /* Психологія & Економіка */
+        .feature-box { 
+            display: flex; gap: 40px; background: rgba(0, 212, 255, 0.05); 
+            padding: 40px; border-radius: 20px; margin: 40px 0; align-items: center;
         }
+        .feature-box i { font-size: 3rem; color: var(--accent); }
 
-        .highlight { color: #00d4ff; font-weight: 600; }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
+        .stats-bar {
+            display: flex; justify-content: space-around; background: var(--accent);
+            color: #000; padding: 40px; border-radius: 15px; margin: 40px 0; font-weight: 700;
         }
+        .stat-item { text-align: center; }
+        .stat-item span { display: block; font-size: 2.5rem; }
 
-        .card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 35px;
-            border-radius: 15px;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            background: rgba(0, 212, 255, 0.03);
-            border-color: #00d4ff;
-        }
-
-        .card h3 { margin-bottom: 15px; color: #fff; font-size: 1.3rem; }
-        .card p { font-size: 0.95rem; color: #999; }
-
-        .conclusion {
-            background: rgba(0, 212, 255, 0.05);
-            padding: 60px;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px dashed rgba(0, 212, 255, 0.2);
-            margin-top: 50px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            font-size: 0.8rem;
-            color: #444;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
+        footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,255,0.05); color: #555; }
 
         @media (max-width: 900px) {
-            .intro-text { column-count: 1; }
-            .content-section { padding: 60px 8%; }
-            nav ul { display: none; }
+            .text-cols { column-count: 1; }
+            .feature-box { flex-direction: column; text-align: center; }
+            .stats-bar { flex-direction: column; gap: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow"></div>
+    <div class="glow-canvas"></div>
 
     <nav>
-        <div class="logo">Urban.Transformation</div>
+        <div class="logo">URBAN.PHILOSOPHY</div>
         <ul>
-            <li><a href="#intro">Глобальні зміни</a></li>
-            <li><a href="#logic">Економіка та Соціум</a></li>
-            <li><a href="#future">Майбутнє</a></li>
+            <li><a href="#history">Історія</a></li>
+            <li><a href="#economy">Економіка</a></li>
+            <li><a href="#geo">Географія</a></li>
+            <li><a href="#smart">Smart City</a></li>
         </ul>
     </nav>
 
     <header>
-        <h1>ЕРА МІСТ</h1>
-        <p>Від природних циклів до бетонних джунглів: як урбанізація переписує код людської цивілізації.</p>
+        <h1>МІСЬКИЙ ПЕРЕХІД</h1>
+        <p>Ми переживаємо наймасштабнішу зміну способу життя в історії. Це не просто статистика — це нова архітектура нашої цивілізації.</p>
     </header>
 
-    <section class="content-section" id="intro">
-        <h2 style="margin-bottom: 30px; font-size: 2rem;">Світ у русі</h2>
-        <div class="intro-text">
-            Урбанізація — це не лише будівництво. Це фундаментальна трансформація нашого виду. 
-            Якщо на початку XX століття в містах жило лише <span class="highlight">15%</span> людей, то сьогодні ми 
-            переступили межу у <span class="highlight">55%</span>. Ми поступово перетворюємося на "вид міський", 
-            змінюючи ландшафт планети та структуру нашого мислення. Місто стало нашим новим природним середовищем.
+    <main class="section" id="history">
+        <h2 class="section-title">Від храму <span>до заводу</span></h2>
+        <div class="text-cols">
+            <p>Історія урбанізації почалася тисячі років тому в Месопотамії, коли люди зрозуміли, що спільне проживання дає захист і можливість обміну товарами. Проте довгі століття міста були винятком. Середньовічне місто було обмежене мурами, а його населення рідко перевищувало кілька десятків тисяч.</p>
+            <p>Справжній «вибух» стався під час Промислової революції. Парова машина змусила людей покинути плуг і стати до верстата. Міста почали рости не вшир, а вгору, поглинаючи ресурси та людські долі. Сьогодні місто стає не просто місцем роботи, а цілим всесвітом, який ніколи не спить.</p>
         </div>
 
-        <div class="grid">
-            <div class="card">
-                <h3>Ефект масштабу</h3>
-                <p>Міста працюють як гігантські прискорювачі. Тут капітал, інновації та таланти створюють нову цінність швидше, ніж будь-де інде.</p>
-            </div>
-            <div class="card">
-                <h3>Два обличчя росту</h3>
-                <p>Захід обирає комфортні передмістя (субурбанізацію), тоді як Глобальний Південь стрімко росте вглиб мегаполісів, часто випереджаючи інфраструктуру.</p>
-            </div>
-            <div class="card">
-                <h3>Екологічний парадокс</h3>
-                <p>Міста — найбільші споживачі ресурсів, але водночас вони найбільш енергоефективні в розрахунку на одну людину.</p>
-            </div>
+        <div class="stats-bar">
+            <div class="stat-item"><span>3%</span>Суші планети</div>
+            <div class="stat-item"><span>80%</span>Світового багатства</div>
+            <div class="stat-item"><span>75%</span>Споживання ресурсів</div>
         </div>
-    </section>
+    </main>
 
-    <section class="content-section" id="logic" style="background: rgba(255,255,255,0.01);">
-        <h2 style="margin-bottom: 30px; font-size: 2rem;">Соціальний ландшафт</h2>
-        <p style="margin-bottom: 20px;">Місто дарує нам дивовижну <span class="highlight">анонімність</span>. Це водночас і свобода від суворого контролю маленьких громад, і ризик глибокої самотності серед мільйонного натовпу. Традиційні сімейні зв’язки слабшають, поступаючись місцем шаленому темпу життя та постійному інформаційному навантаженню.</p>
-        
-        <div class="grid">
-            <div class="card">
-                <h3>Smart Cities</h3>
-                <p>Майбутнє — це не просто більше бетону. Це інтелектуальні системи на базі ШІ, що керують водою, світлом та транспортом для комфорту людини.</p>
-            </div>
-            <div class="card">
-                <h3>Дзеркало успіху</h3>
-                <p>Місто — це наше найбільше винайдення. Воно відображає як наші тріумфи, так і найглибші соціальні проблеми.</p>
+    <section class="section" id="economy" style="background: rgba(255,255,255,0.01);">
+        <h2 class="section-title">Економічне <span>серце</span></h2>
+        <div class="feature-box">
+            <div>
+                <h3>Агломераційний ефект</h3>
+                <p>Коли в одному місці збираються таланти, гроші та ідеї, виникає синергія. У місті шлях від розробки концепції до її впровадження у виробництво є найкоротшим. Проте це породжує і колосальну нерівність: від скляних хмарочосів до нетрів без чистої води.</p>
             </div>
         </div>
     </section>
 
-    <section class="content-section" id="future">
-        <div class="conclusion">
-            <h2 style="margin-bottom: 20px;">Висновок</h2>
-            <p style="font-style: italic; color: #fff;">
-                "Те, якими будуть наші міста через 50 років, визначить, чи зможе людство вижити в гармонії з планетою, чи воно задихнеться під власною вагою."
-            </p>
+    <section class="section" id="geo">
+        <h2 class="section-title">Географія <span>нових гігантів</span></h2>
+        <div class="geo-grid">
+            <div class="geo-card">
+                <h3>Коридор Токайдо</h3>
+                <p>Ланцюг міст від Токіо до Осаки. 70 мільйонів людей живуть у єдиному безперервному міському просторі.</p>
+            </div>
+            <div class="geo-card">
+                <h3>Дельта Перлової річки</h3>
+                <p>Гігантський кластер (Гонконг, Шеньчжень, Гуанчжоу). Тут виробляється більшість світової електроніки.</p>
+            </div>
+            <div class="geo-card">
+                <h3>Міста-привиди</h3>
+                <p>Явище "забудови на виріст" у Китаї, де цілі мегаполіси чекають на своїх мешканців роками.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Психологія <span>натовпу</span></h2>
+        <div class="text-cols">
+            <p>Містянин за один день бачить більше облич, ніж селянин у XIX столітті бачив за все життя. Це народжує «психологічну дистанцію»: ми стаємо байдужими, щоб захистити психіку. У місті ти вільний бути ким завгодно, але водночас ти можеш роками не знати імені сусіда.</p>
+            <p>Це народжує епідемію самотності — один із найбільших викликів урбанізованого суспільства. Місто дарує анонімність, яка є і благословенням, і прокляттям.</p>
+        </div>
+    </section>
+
+    <section class="section" id="smart">
+        <h2 class="section-title">Майбутнє: <span>Smart & Bio</span></h2>
+        <div class="geo-grid">
+            <div class="geo-card">
+                <h3>3D-міста</h3>
+                <p>Використання підземного простору та дронів для розділення потоків людей і вантажів.</p>
+            </div>
+            <div class="geo-card">
+                <h3>Біофільна урбаністика</h3>
+                <p>Вертикальні сади та відновлення природних річок посеред бетону. Повернення природи в джунглі.</p>
+            </div>
+            <div class="geo-card">
+                <h3>Повна автономність</h3>
+                <p>Будинки-конструктори, що самі виробляють енергію та переробляють відходи.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div style="border: 1px solid var(--accent); padding: 50px; text-align: center; border-radius: 20px;">
+            <h2 style="margin-bottom: 20px;">Великий Експеримент</h2>
+            <p style="font-size: 1.2rem; font-style: italic;">"Місто — це наша «друга природа». Ми все ще вчимося в ньому жити, здійснюючи помилки, але саме тут народжуються найбільші відкриття людства."</p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Проєкт "Урбанізація". Написано та розроблено Садовським Іваном.</p>
+        <p>&copy; 2026 Проєкт "Урбанізація: Світовий Перехід". Дослідження Садовського Івана Ігоровича.</p>
     </footer>
 
 </body>
