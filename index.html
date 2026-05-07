@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urbanization | Future Cities</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Основні стилі */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0b;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Фонова анімація */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0b 100%);
+            z-index: -1;
+        }
+
+        /* Навігація */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: rgba(10, 10, 11, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #00d4ff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ccc;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        nav ul li a:hover {
+            color: #00d4ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5), #0a0a0b), 
+                        url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #fff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            max-width: 600px;
+            font-size: 1.1rem;
+            color: #aaa;
+        }
+
+        /* Секції */
+        .section {
+            padding: 100px 10%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        /* Картки (Glassmorphism) */
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #00d4ff;
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #00d4ff;
+        }
+
+        /* Футер */
+        footer {
+            text-align: center;
+            padding: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #555;
+            font-size: 0.8rem;
+        }
+
+        /* Адаптивність */
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .section { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <nav>
+        <div class="logo">URBAN.GEN</div>
+        <ul>
+            <li><a href="#about">Про процес</a></li>
+            <li><a href="#tech">Технології</a></li>
+            <li><a href="#future">Майбутнє</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>УРБАНІЗАЦІЯ</h1>
+        <p>Досліджуємо, як стрімкий ріст міст змінює екологію, технології та життя кожної людини на планеті.</p>
+    </header>
+
+    <section class="section" id="about">
+        <h2 style="text-align: center; font-size: 2.5rem;">Виклики сучасності</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Перенаселення</h3>
+                <p>До 2050 року близько 70% населення світу житиме в містах. Це вимагає нових підходів до житла та простору.</p>
+            </div>
+            <div class="card">
+                <h3>Екологія</h3>
+                <p>Міста споживають 75% світових ресурсів. Майбутнє за вертикальними садами та відновлюваною енергією.</p>
+            </div>
+            <div class="card">
+                <h3>Інфраструктура</h3>
+                <p>Транспортні системи мають стати автономними та електричними, щоб розвантажити мегаполіси від заторів.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="tech" style="background: rgba(255,255,255,0.02);">
+        <h2 style="text-align: center; font-size: 2.5rem;">Smart City</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>IoT мережі</h3>
+                <p>Сенсори, що керують освітленням, трафіком та вивозом сміття в реальному часі.</p>
+            </div>
+            <div class="card">
+                <h3>Big Data</h3>
+                <p>Аналіз даних допомагає містам ставати безпечнішими та ефективнішими для мешканців.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Urbanization Project. Створено для GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
