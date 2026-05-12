@@ -1,188 +1,69 @@
-<!DOCTYPE html>
+here<!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Урбанізація | Світовий Перехід</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --accent: #00d4ff;
-            --bg: #0a0a0c;
-            --card-bg: rgba(255, 255, 255, 0.03);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background-color: var(--bg); color: #dcdcdc; line-height: 1.7; }
-
-        /* Фонове сяйво */
-        .glow-canvas {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 20% 30%, #16213e 0%, transparent 40%),
-                        radial-gradient(circle at 80% 70%, #1a1a2e 0%, transparent 40%);
-            z-index: -1;
-        }
-
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%; background: rgba(10, 10, 12, 0.9);
-            backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .logo { font-weight: 700; letter-spacing: 2px; color: var(--accent); }
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 20px; }
-        nav ul li a { text-decoration: none; color: #888; font-size: 0.8rem; transition: 0.3s; }
-        nav ul li a:hover { color: var(--accent); }
-
-        header {
-            height: 70vh; display: flex; flex-direction: column; justify-content: center;
-            align-items: center; text-align: center; padding: 0 10%;
-            background: linear-gradient(to bottom, rgba(10,10,12,0.2), var(--bg)), 
-                        url('https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover; background-position: center; background-attachment: fixed;
-        }
-
-        header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 8vw, 5rem); margin-bottom: 15px; }
-        header p { max-width: 700px; font-weight: 300; font-size: 1.1rem; color: #aaa; }
-
-        .section { padding: 80px 10%; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 40px; color: #fff; }
-        .section-title span { color: var(--accent); }
-
-        /* Текстові блоки */
-        .text-cols { column-count: 2; column-gap: 50px; text-align: justify; margin-bottom: 40px; }
-        .text-cols p { margin-bottom: 20px; }
-
-        /* Картки мегалополісів */
-        .geo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .geo-card { 
-            background: var(--card-bg); padding: 30px; border-radius: 12px; 
-            border-left: 4px solid var(--accent); transition: 0.3s;
-        }
-        .geo-card:hover { background: rgba(255,255,255,0.06); transform: scale(1.02); }
-
-        /* Психологія & Економіка */
-        .feature-box { 
-            display: flex; gap: 40px; background: rgba(0, 212, 255, 0.05); 
-            padding: 40px; border-radius: 20px; margin: 40px 0; align-items: center;
-        }
-        .feature-box i { font-size: 3rem; color: var(--accent); }
-
-        .stats-bar {
-            display: flex; justify-content: space-around; background: var(--accent);
-            color: #000; padding: 40px; border-radius: 15px; margin: 40px 0; font-weight: 700;
-        }
-        .stat-item { text-align: center; }
-        .stat-item span { display: block; font-size: 2.5rem; }
-
-        footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,255,0.05); color: #555; }
-
-        @media (max-width: 900px) {
-            .text-cols { column-count: 1; }
-            .feature-box { flex-direction: column; text-align: center; }
-            .stats-bar { flex-direction: column; gap: 20px; }
-        }
-    </style>
+    <title>Тінь вітру над Прутом | Гуцульська сага</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="glow-canvas"></div>
-
-    <nav>
-        <div class="logo">URBAN.PHILOSOPHY</div>
-        <ul>
-            <li><a href="#history">Історія</a></li>
-            <li><a href="#economy">Економіка</a></li>
-            <li><a href="#geo">Географія</a></li>
-            <li><a href="#smart">Smart City</a></li>
-        </ul>
-    </nav>
-
-    <header>
-        <h1>МІСЬКИЙ ПЕРЕХІД</h1>
-        <p>Ми переживаємо наймасштабнішу зміну способу життя в історії. Це не просто статистика — це нова архітектура нашої цивілізації.</p>
+    <header class="parallax-hero">
+        <div class="vignette"></div>
+        <div class="hero-content">
+            <div class="tradition-badge">Легенда Верховини</div>
+            <h1>Таємниця Срібної Струни</h1>
+            <p class="subtitle">Коли гори шепочуть, а скрипка відповідає</p>
+        </div>
     </header>
 
-    <main class="section" id="history">
-        <h2 class="section-title">Від храму <span>до заводу</span></h2>
-        <div class="text-cols">
-            <p>Історія урбанізації почалася тисячі років тому в Месопотамії, коли люди зрозуміли, що спільне проживання дає захист і можливість обміну товарами. Проте довгі століття міста були винятком. Середньовічне місто було обмежене мурами, а його населення рідко перевищувало кілька десятків тисяч.</p>
-            <p>Справжній «вибух» стався під час Промислової революції. Парова машина змусила людей покинути плуг і стати до верстата. Міста почали рости не вшир, а вгору, поглинаючи ресурси та людські долі. Сьогодні місто стає не просто місцем роботи, а цілим всесвітом, який ніколи не спить.</p>
-        </div>
+    <main>
+        <section class="intro">
+            <p>У самому серці Карпат, де Черемош піниться об каміння, а смереки дістають верхівками до зірок, жив молодий майстер Олекса. Казали, що в його жилах тече не просто кров, а гірська соснова живиця...</p>
+        </section>
 
-        <div class="stats-bar">
-            <div class="stat-item"><span>3%</span>Суші планети</div>
-            <div class="stat-item"><span>80%</span>Світового багатства</div>
-            <div class="stat-item"><span>75%</span>Споживання ресурсів</div>
-        </div>
+        <article class="chapter reveal">
+            <div class="image-box">
+                <img src="[attachment_0](attachment)" alt="Карпати">
+            </div>
+            <div class="text-box">
+                <h2>I. Поклик Гір</h2>
+                <p>Олекса не був звичайним вівчарем. Поки інші рахували овець на полонині, він слухав, як співає вітер у порожніх стовбурах старих дерев. Його дід, старий мольфар, перед смертю шепнув: <i>"Справжня музика не в руках, вона в дереві, що чекає на тебе сто років"</i>.</p>
+                <p>Одного вечора, коли небо затягнуло густим багрянцем, Олекса взяв свою бартку, затягнув тугіше шкіряний черес і вирушив туди, куди не ходять навіть найсміливіші легіні — до підніжжя Говерли, де за легендами росте Срібна Смерека.</p>
+            </div>
+        </article>
+
+        <article class="chapter reverse reveal">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1000" alt="Магічний ліс">
+            </div>
+            <div class="text-box">
+                <h2>II. Зустріч з Чугайстром</h2>
+                <p>Ліс ставав дедалі густішим. Туман обіймав ноги, мов жива істота. Раптом серед тиші пролунав сміх — глибокий, наче гуркіт обвалу в горах. На галявину вийшов Чугайстер. Його шкіра була як кора старої ялиці, а в бороді заплуталися лісові квіти.</p>
+                <p>— Куди йдеш, легіню? — спитав лісовий дух, викрешуючи іскри з люльки. 
+                — Шукаю голос Карпат, — відповів Олекса, не відводячи погляду. 
+                Чугайстер посміхнувся: — Голос не шукають, його звільняють. Але ціна — твій страх. Віддай мені свою тривогу, і я покажу дорогу.</p>
+            </div>
+        </article>
+
+        <article class="chapter reveal">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1541613569553-332aceecc146?auto=format&fit=crop&q=80&w=1000" alt="Світанок">
+            </div>
+            <div class="text-box">
+                <h2>III. Безсмертна Мелодія</h2>
+                <p>Олекса знайшов те дерево на світанку. Смерека сяяла під першими променями сонця, ніби була відлита зі срібла. Коли він торкнувся кори, дерево завібрувало. Він зрозумів: музика — це не лише радість, це і сум прощання, і гнів бурі, і тиша снігопаду.</p>
+                <p>Повернувшись у село, він зробив скрипку. Коли смичок торкнувся струн, люди плакали і сміялися водночас. Вовки зупинялися у лісі, щоб послухати, а ріки сповільнювали свій біг. Відтоді кажуть, що гуцульська душа назавжди запечатана в звуках тої срібної струни.</p>
+            </div>
+        </article>
     </main>
 
-    <section class="section" id="economy" style="background: rgba(255,255,255,0.01);">
-        <h2 class="section-title">Економічне <span>серце</span></h2>
-        <div class="feature-box">
-            <div>
-                <h3>Агломераційний ефект</h3>
-                <p>Коли в одному місці збираються таланти, гроші та ідеї, виникає синергія. У місті шлях від розробки концепції до її впровадження у виробництво є найкоротшим. Проте це породжує і колосальну нерівність: від скляних хмарочосів до нетрів без чистої води.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="geo">
-        <h2 class="section-title">Географія <span>нових гігантів</span></h2>
-        <div class="geo-grid">
-            <div class="geo-card">
-                <h3>Коридор Токайдо</h3>
-                <p>Ланцюг міст від Токіо до Осаки. 70 мільйонів людей живуть у єдиному безперервному міському просторі.</p>
-            </div>
-            <div class="geo-card">
-                <h3>Дельта Перлової річки</h3>
-                <p>Гігантський кластер (Гонконг, Шеньчжень, Гуанчжоу). Тут виробляється більшість світової електроніки.</p>
-            </div>
-            <div class="geo-card">
-                <h3>Міста-привиди</h3>
-                <p>Явище "забудови на виріст" у Китаї, де цілі мегаполіси чекають на своїх мешканців роками.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2 class="section-title">Психологія <span>натовпу</span></h2>
-        <div class="text-cols">
-            <p>Містянин за один день бачить більше облич, ніж селянин у XIX столітті бачив за все життя. Це народжує «психологічну дистанцію»: ми стаємо байдужими, щоб захистити психіку. У місті ти вільний бути ким завгодно, але водночас ти можеш роками не знати імені сусіда.</p>
-            <p>Це народжує епідемію самотності — один із найбільших викликів урбанізованого суспільства. Місто дарує анонімність, яка є і благословенням, і прокляттям.</p>
-        </div>
-    </section>
-
-    <section class="section" id="smart">
-        <h2 class="section-title">Майбутнє: <span>Smart & Bio</span></h2>
-        <div class="geo-grid">
-            <div class="geo-card">
-                <h3>3D-міста</h3>
-                <p>Використання підземного простору та дронів для розділення потоків людей і вантажів.</p>
-            </div>
-            <div class="geo-card">
-                <h3>Біофільна урбаністика</h3>
-                <p>Вертикальні сади та відновлення природних річок посеред бетону. Повернення природи в джунглі.</p>
-            </div>
-            <div class="geo-card">
-                <h3>Повна автономність</h3>
-                <p>Будинки-конструктори, що самі виробляють енергію та переробляють відходи.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div style="border: 1px solid var(--accent); padding: 50px; text-align: center; border-radius: 20px;">
-            <h2 style="margin-bottom: 20px;">Великий Експеримент</h2>
-            <p style="font-size: 1.2rem; font-style: italic;">"Місто — це наша «друга природа». Ми все ще вчимося в ньому жити, здійснюючи помилки, але саме тут народжуються найбільші відкриття людства."</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Проєкт "Урбанізація: Світовий Перехід". Дослідження Садовського Івана Ігоровича.</p>
+    <footer class="final-footer">
+        <div class="ornament"></div>
+        <p>Кінець легенди. Початок вашої подорожі.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
